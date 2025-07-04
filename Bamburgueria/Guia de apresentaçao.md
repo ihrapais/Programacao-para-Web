@@ -1,10 +1,10 @@
-# Guia de Apresentação do Projeto "Loja2" (Sistema de Cardápio e Pedidos)
+# Guia de Apresentação do Projeto "Bamburgueria" (Sistema de Cardápio e Pedidos)
 
-Este guia serve como um roteiro para apresentar o projeto "Loja2", um sistema de cardápio e pedidos online, destacando suas tecnologias, arquitetura e funcionalidades.
+Este guia serve como um roteiro para apresentar o projeto "Bamburgueria", um sistema de cardápio e pedidos online, destacando suas tecnologias, arquitetura e funcionalidades.
 
 ## 1. Introdução (2-3 minutos)
 
-- **Objetivo do Projeto:** Apresentar um sistema de cardápio digital e gestão de pedidos para um estabelecimento (ex: hamburgueria), com funcionalidades para clientes (visualizar cardápio, adicionar ao carrinho) e administradores (gerenciar produtos, visualizar pedidos).
+- **Objetivo do Projeto:** Apresentar um sistema de cardápio digital e gestão de pedidos para um estabelecimento (ex: hamburgueria), com funcionalidades para clientes (visualizar cardápio, adicionar ao carrinho) e administradores terem a possibilidade de gerenciar,  editar e cadastrar produtos, visualizar pedidos.
 - **Contexto:** Como o projeto surgiu, qual problema ele resolve (ex: modernizar pedidos, agilizar atendimento, facilitar gestão).
 - **Visão Geral:** É uma aplicação Full-Stack, dividida em Back-End (API) e Front-End (Interface do Usuário).
 
@@ -17,7 +17,7 @@ Este guia serve como um roteiro para apresentar o projeto "Loja2", um sistema de
 - **Segurança:** Spring Security com JWT (JSON Web Tokens)
   - **Explicação:** Como a autenticação e autorização são gerenciadas. JWTs garantem que as requisições sejam seguras e que apenas usuários autorizados (ex: ADMIN) possam acessar certas funcionalidades.
 - **Banco de Dados:** MySQL
-  - **Explicação:** Banco de dados relacional para persistência de dados (produtos, usuários, pedidos).
+  - **Explicação:** Banco de dados relacional para testes com possibilidade de persistência de dados alterando o CREATE para UPDATE na ApplicationProperties
 - **ORM (Mapeamento Objeto-Relacional):** Spring Data JPA / Hibernate
   - **Explicação:** Facilita a interação com o banco de dados, mapeando objetos Java para tabelas do banco.
 - **Ferramenta de Build:** Maven
@@ -60,7 +60,7 @@ Este guia serve como um roteiro para apresentar o projeto "Loja2", um sistema de
 
 - **Preparação:** Certifique-se de que o back-end e o front-end estão rodando.
   - **Back-End:** `java -jar target\Menu-Back-End-master-0.0.1-SNAPSHOT.jar`
-  - **Front-End:** `npm run dev`
+  - **Front-End:** `npm run dev` (necessário instalar as dependências necessárias ANTES) ex: npm install e a execução do maven também por exemplo 
 - **Cenário de Cliente:**
   - Acessar a página inicial (cardápio).
   - Navegar pelos produtos.
@@ -80,6 +80,11 @@ Este guia serve como um roteiro para apresentar o projeto "Loja2", um sistema de
 
 ## 5. Perguntas e Respostas (Tempo restante)
 
-- Abrir para perguntas da audiência.
+- Aberto para as dúvidas e perguntas da turma.
 
----
+- Ferramentas de IA utilizadas para apoio de dúvidas e também na resolução (ou criação) de problemas:
+-    - Claude
+     - Gemini AI
+     - ChatGPT
+ 
+Muito Obrigado!
