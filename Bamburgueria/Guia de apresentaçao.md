@@ -1,4 +1,5 @@
-# Guia de Apresentação do Projeto "Bamburgueria" (Sistema de Cardápio e Pedidos)
+# Guia de Apresentação 
+# Projeto "Bamburgueria" (Sistema de Restaurante com Cardápio Online e Pedidos)
 
 Este guia serve como um roteiro para apresentar o projeto "Bamburgueria", um sistema de cardápio e pedidos online, destacando suas tecnologias, arquitetura e funcionalidades.
 
