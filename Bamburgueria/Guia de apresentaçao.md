@@ -1,4 +1,4 @@
-# Guia de Apresentação 
+# Guia de Apresentação - Anderson Schieck Lopes
 # Projeto "Bamburgueria" (Sistema de Restaurante com Cardápio Online e Pedidos)
 
 Este guia serve como um roteiro para apresentar o projeto "Bamburgueria", um sistema de cardápio e pedidos online, destacando suas tecnologias, arquitetura e funcionalidades.
