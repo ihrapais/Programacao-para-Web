@@ -1,95 +1,169 @@
 # Guia de Apresentação - Anderson Schieck Lopes
+
 # Projeto "Bamburgueria" (Sistema de Restaurante com Cardápio Online e Pedidos)
 
-Este guia serve como um roteiro para apresentar o projeto "Bamburgueria", um sistema de cardápio e pedidos online, destacando suas tecnologias, arquitetura e funcionalidades.
+Este guia serve como roteiro para apresentar o projeto **Bamburgueria**, um sistema Full-Stack com funcionalidades para clientes e administradores, destacando tecnologias, arquitetura, funcionamento e execução prática.
+
+---
 
 ## 1. Introdução (2-3 minutos)
 
-- **Objetivo do Projeto:** Apresentar um sistema de cardápio digital e gestão de pedidos para um estabelecimento (ex: hamburgueria), com funcionalidades para clientes (visualizar cardápio, adicionar ao carrinho) e administradores terem a possibilidade de gerenciar,  editar e cadastrar produtos, visualizar pedidos.
-- **Contexto:** Como o projeto surgiu, qual problema ele resolve (ex: modernizar pedidos, agilizar atendimento, facilitar gestão).
-- **Visão Geral:** É uma aplicação Full-Stack, dividida em Back-End (API) e Front-End (Interface do Usuário).
+* **Objetivo:** Criar um sistema digital para cardápio e gestão de pedidos em tempo real.
+* **Problema Resolvido:** Agiliza o atendimento, facilita a gestão e moderniza o processo de pedidos.
+* **Visão Geral:** Arquitetura Full-Stack dividida entre Back-End (API com Java Spring Boot) e Front-End (Interface com React + TypeScript).
+
+---
 
 ## 2. Tecnologias Utilizadas (5-7 minutos)
 
-### 2.1. Back-End (API)
-- **Linguagem:** Java
-- **Framework:** Spring Boot
-  - **Por que Spring Boot?** Facilita o desenvolvimento de APIs RESTful, possui um ecossistema robusto, auto-configuração, e é amplamente utilizado no mercado.
-- **Segurança:** Spring Security com JWT (JSON Web Tokens)
-  - **Explicação:** Como a autenticação e autorização são gerenciadas. JWTs garantem que as requisições sejam seguras e que apenas usuários autorizados (ex: ADMIN) possam acessar certas funcionalidades.
-- **Banco de Dados:** MySQL
-  - **Explicação:** Banco de dados relacional para testes com possibilidade de persistência de dados alterando o CREATE para UPDATE na ApplicationProperties
-- **ORM (Mapeamento Objeto-Relacional):** Spring Data JPA / Hibernate
-  - **Explicação:** Facilita a interação com o banco de dados, mapeando objetos Java para tabelas do banco.
-- **Ferramenta de Build:** Maven
-  - **Explicação:** Gerenciamento de dependências e ciclo de vida do projeto.
+### 2.1. Back-End (Java + Spring Boot)
 
-### 2.2. Front-End (Interface do Usuário)
-- **Linguagem:** TypeScript
-  - **Por que TypeScript?** Adiciona tipagem estática ao JavaScript, o que ajuda a prevenir erros, melhora a legibilidade e a manutenibilidade do código, especialmente em projetos maiores.
-- **Framework/Biblioteca:** React
-  - **Por que React?** Biblioteca popular para construção de interfaces de usuário interativas e reativas, baseada em componentes.
-- **Ferramenta de Build:** Vite
-  - **Por que Vite?** Ferramenta de build moderna e rápida para projetos front-end, oferece hot module replacement (HMR) e otimizações para produção.
-- **Gerenciamento de Estado:** Context API (para carrinho e notificações), `useState`/`useEffect` (para estado de autenticação no `App.tsx`)
-  - **Explicação:** Como o estado da aplicação é gerenciado e compartilhado entre componentes.
-- **Estilização:** Bootstrap (com classes CSS)
-  - **Explicação:** Framework CSS para um design responsivo e rápido.
-- **Roteamento:** React Router DOM
-  - **Explicação:** Gerencia a navegação entre as diferentes páginas da aplicação.
+* **Linguagem:** Java 17+
+* **Framework:** Spring Boot
 
-## 3. Como Foi Construído (3-4 minutos)
+  * API RESTful com segurança e escalabilidade.
+* **Segurança:** Spring Security com JWT
 
-- **Arquitetura:** Monolito dividido em dois projetos (Back-End e Front-End) que se comunicam via API REST.
-- **Estrutura do Back-End:**
-  - **`model`:** Classes que representam as entidades do banco de dados (Produto, User, Compra, ItemCompra).
-  - **`repository`:** Interfaces para interação com o banco de dados (Spring Data JPA).
-  - **`service`:** Lógica de negócio, onde as regras de negócio são implementadas.
-  - **`controller`:** Endpoints da API REST que expõem as funcionalidades.
-  - **`dto`:** Objetos de Transferência de Dados, para comunicação entre camadas e com o front-end.
-  - **`config`:** Configurações de segurança (Spring Security).
-  - **`filter`:** Filtros JWT para autenticação.
-  - **`util`:** Utilitários (ex: `JwtUtil` para geração e validação de tokens).
-- **Estrutura do Front-End:**
-  - **`components`:** Componentes reutilizáveis da UI (LoginPage, ProductList, Carrinho, MenuCliente, etc.).
-  - **`context`:** Contextos React para gerenciamento de estado global (Carrinho, Notificações).
-  - **`services`:** Camada para fazer requisições à API (ex: `api.ts`).
-  - **`models`:** Interfaces TypeScript para tipagem dos dados.
-- **Fluxo de Autenticação:** Explicar brevemente como o login funciona (envia credenciais, recebe JWT, armazena no `localStorage`, usa para requisições futuras).
+  * Garantia de acesso apenas a usuários autenticados.
+* **Banco de Dados:** MySQL
+* **ORM:** Spring Data JPA / Hibernate
+* **Build:** Maven (`mvn` ou `./mvnw`)
+
+### 2.2. Front-End (React + TypeScript)
+
+* **Linguagem:** TypeScript
+* **Framework:** React
+* **Build Tool:** Vite
+* **Gerenciamento de Estado:** Context API, `useState`, `useEffect`
+* **Estilo:** Bootstrap
+* **Roteamento:** React Router DOM
+
+---
+
+## 3. Estrutura do Projeto (3-4 minutos)
+
+### 3.1. Back-End
+
+* **`model`:** Entidades (Produto, User, Compra, ItemCompra).
+* **`repository`:** Interfaces JPA.
+* **`service`:** Regras de negócio.
+* **`controller`:** Endpoints REST.
+* **`dto`:** Objetos de transferência.
+* **`config`/`filter`/`util`:** Autenticação e segurança JWT.
+
+### 3.2. Front-End
+
+* **`components`:** LoginPage, ProductList, Carrinho, etc.
+* **`context`:** Carrinho e notificações.
+* **`services`:** API (`api.ts`).
+* **`models`:** Interfaces para os dados.
+
+### Fluxo de Autenticação
+
+1. Envia login → recebe JWT.
+2. Armazena no `localStorage`.
+3. JWT usado em todas as requisições protegidas.
+
+---
 
 ## 4. Demonstração (5-7 minutos)
 
-- **Preparação:** Certifique-se de que o back-end e o front-end estão rodando.
-  - **Back-End:** `java -jar target\Menu-Back-End-master-0.0.1-SNAPSHOT.jar`
-  - **Front-End:** `npm run dev` (necessário instalar as dependências necessárias ANTES) ex: npm install e a execução do maven também por exemplo 
-- **Cenário de Cliente:**
-  - Acessar a página inicial (cardápio).
-  - Navegar pelos produtos.
-  - Adicionar itens ao carrinho.
-  - Visualizar o carrinho.
-- **Cenário de Administrador:**
-  - Acessar a página de login (`/login`).
-  - Fazer login com credenciais de administrador (ex: `admin`/`admin123`).
-  - **Destacar:** A mudança de cor do header para indicar o modo administrador.
-  - Navegar para a página de administração (`/admin`).
-  - **Destacar:** O botão "Sair" que aparece na página de administração.
-  - Adicionar um novo produto.
-  - Editar um produto existente (mostrar a funcionalidade de update que foi corrigida).
-  - Excluir um produto.
-  - Clicar em "Sair" para deslogar.
-  - **Destacar:** O header voltando à cor original.
+### Execução
+
+#### ✅ Pré-requisitos
+
+* **Java 17+** e **Maven** instalados
+* **Node.js 16+** e **npm**
+
+---
+
+### 🚀 Passo a passo
+
+#### 1. **Backend**
+
+* Localização: pasta raiz do projeto backend.
+
+```bash
+# Na pasta do back-end:
+mvn clean install
+mvn spring-boot:run
+# ou (se tiver wrapper Maven)
+./mvnw spring-boot:run
+```
+
+* Porta padrão: `http://localhost:8080`
+
+##### Banco de dados:
+
+* Se **você limpou o banco** (DROP):
+  No `application.properties`, defina:
+
+  ```
+  spring.jpa.hibernate.ddl-auto=create
+  ```
+
+  Inicie o servidor uma vez → ele recria as tabelas → depois altere para:
+
+  ```
+  spring.jpa.hibernate.ddl-auto=update
+  ```
+
+* Se **você NÃO limpou o banco**:
+  Use diretamente:
+
+  ```
+  spring.jpa.hibernate.ddl-auto=update
+  ```
+
+---
+
+#### 2. **Frontend**
+
+* Localização: pasta com `package.json`.
+
+```bash
+# Instale as dependências
+npm install
+
+# Instale o React Router
+npm install react-router-dom
+
+# Inicie o servidor
+npm run dev
+```
+
+* Porta padrão: `http://localhost:5173`
+
+---
+
+### Demonstração de Funcionalidades
+
+#### Cliente:
+
+* Acessa a página inicial.
+* Visualiza produtos.
+* Adiciona ao carrinho.
+* Visualiza carrinho.
+
+#### Administrador:
+
+* Acessa `/login`, autentica (`admin`/`admin123`).
+* Header muda de cor para modo administrador.
+* Acessa `/admin`, adiciona, edita e exclui produtos.
+* Sai do sistema → Header retorna ao estado original.
+
+---
 
 ## 5. Perguntas e Respostas (Tempo restante)
 
-- Aberto para as dúvidas e perguntas da turma.
+* Abertura para perguntas e interações.
+* Ferramentas de IA utilizadas:
 
-- Ferramentas de IA utilizadas para apoio de dúvidas e também na resolução (ou criação) de problemas:
--    - Claude
-     - Gemini AI
-     - ChatGPT
- 
-Muito Obrigado pela oportunidade e atenção!
+  * Claude, Gemini AI e ChatGPT (para apoio, correção e aceleração de desenvolvimento).
 
+---
+
+**Muito obrigado pela oportunidade e atenção!**
 Atenciosamente,
+**Anderson Schieck Lopes**
 
-Anderson 
