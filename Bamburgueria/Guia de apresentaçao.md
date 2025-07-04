@@ -88,4 +88,8 @@ Este guia serve como um roteiro para apresentar o projeto "Bamburgueria", um sis
      - Gemini AI
      - ChatGPT
  
-Muito Obrigado!
+Muito Obrigado pela oportunidade e atenção!
+
+Atenciosamente,
+
+Anderson 
